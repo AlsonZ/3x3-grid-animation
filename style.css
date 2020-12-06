@@ -148,6 +148,7 @@ body {
   background-size: contain;
   background-image: url(./test2.PNG);
   animation: size-increase-animation-v3 2.2s forwards;
+  animation-delay: calc(var(--animation-order) * 0.3s);
 }
 
 @keyframes size-increase-animation-v3 {
