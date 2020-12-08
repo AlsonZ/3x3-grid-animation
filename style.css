@@ -264,3 +264,38 @@ body {
     padding: 0px;
   }
 }
+
+#overlay-grid-v2 .image {
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(./test2.PNG);
+  position: relative;
+}
+
+#overlay-grid-v2 .image .grid-animation {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  grid-auto-rows: 1fr;
+}
+#overlay-grid-v2 .image .grid-animation::before {
+  content: "";
+  width: 0;
+  padding-bottom: 100%;
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+}
+
+#overlay-grid-v2 .image .grid-animation > *:first-child {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+}
+
+#overlay-grid-v2 .image .grid-animation .grid-cell {
+  animation: border-animation-v2 2s forwards;
+  animation-delay: calc(var(--animation-order) * 0.3s);
+  background-clip: content-box;
+  box-shadow: inset 0 0 0 500px white;
+}
