@@ -236,7 +236,6 @@ body {
 }
 
 #overlay-grid .container .image .grid-animation {
-  background: rgba(255, 0, 0, 0.219);
   position: absolute;
   left: 0;
   top: 0;
@@ -248,26 +247,20 @@ body {
 }
 
 #overlay-grid .container .image .grid-animation .grid-cell {
-  /* background: blue; */
   box-sizing: border-box;
-  animation: border-animation-v2 30s forwards;
-  animation-delay: calc(var(--animation-order) * 0.35s);
-  border: 15vw solid red;
+  animation: border-animation-v2 2s forwards;
+  animation-delay: calc(var(--animation-order) * 0.3s);
+  background-clip: content-box;
+  box-shadow: inset 0 0 0 500px white;
 }
 
 @keyframes border-animation-v2 {
   0% {
-    border: 15vw solid red;
-    /* border-radius: 10px; */
-    z-index: 1;
-  }
-  50% {
-    border: 0px solid white;
+    padding: 40px;
+    box-shadow: inset 0 0 0 400px white;
   }
   100% {
-    z-index: -1;
+    box-shadow: inset 0 0 0 0px white;
+    padding: 0px;
   }
 }
-/* #overlay-grid .container .image .grid-animation .grid-cell:nth-child(1) {
-  animation-delay: 0;
-} */
