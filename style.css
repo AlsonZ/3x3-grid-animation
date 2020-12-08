@@ -298,4 +298,6 @@ body {
   animation-delay: calc(var(--animation-order) * 0.3s);
   background-clip: content-box;
   box-shadow: inset 0 0 0 500px white;
+  /* border: 1px solid red;
+  box-sizing: border-box; */
 }
