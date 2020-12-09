@@ -304,3 +304,13 @@ body {
   /* border: 1px solid red; */
   /* box-sizing: border-box; */
 }
+
+#background-image-v1 .image {
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(./test2.PNG);
+  position: relative;
+}

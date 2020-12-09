@@ -58,9 +58,9 @@ const overlay_v3 = () => {
   cell.remove();
   let matrix = [];
   // console.log("start");
-  for (let i = 0; i < rows; i++) {
+  for (let i = 1; i <= rows; i++) {
     matrix[i] = [];
-    for (let j = 0; j < columns; j++) {
+    for (let j = 1; j <= columns; j++) {
       // createCell();
       /* 
         Credit to Nico Schertler for this relative distance method
@@ -72,8 +72,8 @@ const overlay_v3 = () => {
       let relativeDiffY = (2 * Math.abs(j - columns / 2)) / (columns - 1);
       let t = Math.max(relativeDiffX, relativeDiffY);
       // console.log(t);
-      matrix[i][j] = Math.pow(2, t).toFixed(2);
-      createCell(Math.pow(2, t).toFixed(2));
+      matrix[i][j] = Math.pow(2.1, t).toFixed(2);
+      createCell(Math.pow(2.1, t).toFixed(2));
       // matrix[i][j] = t.toFixed(2);
       // createCell(t.toFixed(2));
     }
@@ -96,3 +96,17 @@ const overlay_v3 = () => {
 };
 
 overlay_v3();
+
+const overlay_v4 = () => {
+  console.log("overlay_v4");
+  let gridImage = document.getElementById("grid-animation-image-v4");
+  // gridImage.style.height = gridImage.getBoundingClientRect().width;
+  document.getElementById("grid-animation-image-v4").style.height =
+    gridImage.getBoundingClientRect().width + "px";
+  // ).style.height = "100px";
+  console.log(gridImage.getBoundingClientRect().width);
+  console.log(document.getElementById("grid-animation-image-v4").style.height);
+  // cell.setAttribute("style", "height" + i);
+};
+
+overlay_v4();
