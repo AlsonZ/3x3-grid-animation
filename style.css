@@ -264,7 +264,9 @@ body {
     padding: 0px;
   }
 }
-
+#overlay-grid-v2 .container {
+  position: relative;
+}
 #overlay-grid-v2 .image {
   width: 100%;
   height: 100vh;
@@ -279,6 +281,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
   grid-auto-rows: 1fr;
+  overflow: hidden;
 }
 #overlay-grid-v2 .image .grid-animation::before {
   content: "";
@@ -298,6 +301,6 @@ body {
   animation-delay: calc(var(--animation-order) * 0.3s);
   background-clip: content-box;
   box-shadow: inset 0 0 0 500px white;
-  /* border: 1px solid red;
-  box-sizing: border-box; */
+  /* border: 1px solid red; */
+  /* box-sizing: border-box; */
 }
