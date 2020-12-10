@@ -19,7 +19,7 @@ const overlay_v3 = () => {
   // let matrix =
   const createCell = (i) => {
     let cell = document.createElement("div");
-    cell.classList.add("grid-cell");
+    cell.classList.add("matrix-grid-cell");
     cell.setAttribute("style", "--animation-order: " + i);
     grid.appendChild(cell);
     return cell;
@@ -110,3 +110,54 @@ const overlay_v4 = () => {
 };
 
 overlay_v4();
+
+const background_image_v1 = () => {
+  let gridImage = document.getElementById("grid-animation-image-v4");
+  let grid = document.getElementById("grid-animation-v4");
+  const createCell = (i) => {
+    let cell = document.createElement("div");
+    cell.classList.add("matrix-grid-cell");
+    cell.setAttribute("style", "--animation-order: " + i);
+    grid.appendChild(cell);
+    return cell;
+  };
+  const cell = createCell(0);
+  // get dimensions
+  let gridImageDimensions = gridImage.getBoundingClientRect();
+  let gridImageWidth = gridImageDimensions.width;
+  let gridImageHeight = gridImageDimensions.height;
+  let cellDimesions = cell.getBoundingClientRect();
+  let cellWidth = cellDimesions.width;
+  let cellHeight = cellDimesions.height;
+  // generate cells based on height and width.
+  let rows = gridImageHeight / cellHeight;
+  let columns = gridImageWidth / cellWidth;
+  console.log("height", cellHeight, gridImageHeight, rows);
+  console.log("width", cellWidth, gridImageWidth, columns);
+  columns = Math.round(columns);
+  rows = Math.round(rows);
+  cell.remove();
+  let centerPoint = (rows - 1) / 2;
+  console.log("centerPoint", centerPoint);
+  let matrix = [];
+  const distanceFromCenter = (i, j) => {
+    // get absolute value of i - centerpoint;
+    // if more than one centerpoint this will be different
+    let row = Math.abs(i - centerPoint);
+    let column = Math.abs(j - centerPoint);
+    console.log(i, row, column);
+    return Math.max(row, column);
+  };
+  for (let i = 0; i < rows; i++) {
+    matrix[i] = [];
+    for (let j = 0; j < columns; j++) {
+      let val = distanceFromCenter(i, j);
+      matrix[i][j] = val;
+      createCell(val);
+    }
+  }
+  console.log("testing new");
+  console.table(matrix);
+};
+
+background_image_v1();
