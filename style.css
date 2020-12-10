@@ -316,3 +316,26 @@ body {
   background-image: url(./test2.PNG);
   position: relative;
 }
+
+#homepage-v1 .container {
+  position: relative;
+  /* width: 100%; */
+}
+#homepage-v1 .container .title-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#homepage-v1 .container .title-container .title {
+  color: white;
+}
+#homepage-v1 .container .image {
+  width: 100%;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(./test2.PNG);
+  position: relative;
+}
