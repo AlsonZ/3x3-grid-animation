@@ -161,3 +161,52 @@ const background_image_v1 = () => {
 };
 
 background_image_v1();
+
+const generate_grid = (grid, gridImage) => {
+  let gridImageElement = document.getElementById(gridImage);
+  let gridElement = document.getElementById(grid);
+  const createCell = (i) => {
+    let cell = document.createElement("div");
+    cell.classList.add("matrix-grid-cell");
+    cell.setAttribute("style", "--animation-order: " + i);
+    gridElement.appendChild(cell);
+    return cell;
+  };
+  const getDimensions = () => {
+    const cell = createCell(0);
+    // get dimensions
+    let {
+      width: gridImageWidth,
+      height: gridImageHeight,
+    } = gridImageElement.getBoundingClientRect();
+    let { width: cellWidth, height: cellHeight } = cell.getBoundingClientRect();
+    // get number of rows and columns
+    let rows = gridImageHeight / cellHeight;
+    let columns = gridImageWidth / cellWidth;
+    columns = Math.round(columns);
+    rows = Math.round(rows);
+    cell.remove(); // remove initial cell
+    return { rows, columns };
+  };
+  const distanceFromCenter = (i, j) => {
+    let row = Math.abs(i - centerPoint);
+    let column = Math.abs(j - centerPoint);
+    return Math.max(row, column);
+  };
+
+  let { rows, columns } = getDimensions();
+  let centerPoint = (rows - 1) / 2;
+  let matrix = [];
+  for (let i = 0; i < rows; i++) {
+    matrix[i] = [];
+    for (let j = 0; j < columns; j++) {
+      let val = distanceFromCenter(i, j);
+      matrix[i][j] = val;
+      createCell(val);
+    }
+  }
+  console.log("homepage matrix");
+  console.table(matrix);
+};
+
+generate_grid("grid-animation-v5", "grid-animation-image-v5");
