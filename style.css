@@ -277,13 +277,13 @@ body {
   position: relative;
 }
 
-#overlay-grid-v2 .image .grid-animation {
+.matrix-grid-animation {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
   grid-auto-rows: 1fr;
   overflow: hidden;
 }
-#overlay-grid-v2 .image .grid-animation::before {
+.matrix-grid-animation::before {
   content: "";
   width: 0;
   padding-bottom: 100%;
@@ -291,12 +291,12 @@ body {
   grid-column: 1 / 1;
 }
 
-#overlay-grid-v2 .image .grid-animation > *:first-child {
+.matrix-grid-animation > *:first-child {
   grid-row: 1 / 1;
   grid-column: 1 / 1;
 }
 
-#overlay-grid-v2 .image .grid-animation .grid-cell {
+.matrix-grid-cell {
   animation: border-animation-v2 2s forwards;
   animation-delay: calc(var(--animation-order) * 0.3s);
   background-clip: content-box;
@@ -304,7 +304,9 @@ body {
   /* border: 1px solid red; */
   /* box-sizing: border-box; */
 }
-
+#background-image-v1 .container {
+  position: relative;
+}
 #background-image-v1 .image {
   width: 100%;
   height: 100vh;
