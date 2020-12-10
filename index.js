@@ -9,7 +9,7 @@ const overlay_v2 = () => {
   }
 };
 
-// overlay_v2();
+overlay_v2();
 
 const overlay_v3 = () => {
   let gridImage = document.getElementById("grid-animation-image-v3");
@@ -185,6 +185,7 @@ const generate_grid = (grid, gridImage) => {
     let columns = gridImageWidth / cellWidth;
     columns = Math.round(columns);
     rows = Math.round(rows);
+    console.log("grid:", rows, columns);
     cell.remove(); // remove initial cell
     return { rows, columns };
   };
@@ -194,17 +195,44 @@ const generate_grid = (grid, gridImage) => {
     return Math.max(row, column);
   };
 
-  let { rows, columns } = getDimensions();
-  let centerPoint = (rows - 1) / 2;
-  let matrix = [];
-  for (let i = 0; i < rows; i++) {
-    matrix[i] = [];
-    for (let j = 0; j < columns; j++) {
-      let val = distanceFromCenter(i, j);
-      matrix[i][j] = val;
-      createCell(val);
+  const distanceFromCenterv2 = (i, j) => {
+    let row1 = Math.abs(i - centerRow1);
+    let row2 = Math.abs(i - centerRow2);
+    let column1 = Math.abs(j - centerColumn1);
+    let column2 = Math.abs(j - centerColumn2);
+    if (
+      (i == centerRow1 && j == centerColumn1) ||
+      (i == centerRow2 && j == centerColumn2)
+    ) {
+      // console.log(row1, row2, column1, column2);
+      return 0;
     }
-  }
+    return Math.max(row1, row2, column1, column2);
+  };
+  const generate_matrix = () => {
+    let matrix = [];
+    for (let i = 0; i < rows; i++) {
+      matrix[i] = [];
+      for (let j = 0; j < columns; j++) {
+        // let val = distanceFromCenter(i, j);
+        let val = distanceFromCenterv2(i, j);
+        matrix[i][j] = val;
+        createCell(val);
+      }
+    }
+    return matrix;
+  };
+  let { rows, columns } = getDimensions();
+  let centerPoint = (columns - 1) / 2;
+  let centerColumn1 = Math.floor((columns - 1) / 2); // round down? does not work with even numbers
+  let centerColumn2 = Math.floor(columns / 2); // round down when odd?
+  let centerRow1 = Math.floor((rows - 1) / 2); // works with odd numbers
+  let centerRow2 = Math.floor(rows / 2); // does not work with odd numbers round down?
+  // console.log(centerColumn1, centerColumn2, centerRow1, centerRow2);
+  console.log(Math.floor(centerColumn1), Math.floor(centerRow1));
+  console.log(Math.floor(centerColumn2), Math.floor(centerRow2));
+  console.log("center", centerPoint);
+  let matrix = generate_matrix();
   console.log("homepage matrix");
   console.table(matrix);
 };
