@@ -183,21 +183,21 @@ const generate_grid = (grid, gridImage) => {
     // get number of rows and columns
     let rows = gridImageHeight / cellHeight;
     let columns = gridImageWidth / cellWidth;
-    console.log("rows:", rows);
-    console.log(cellHeight % gridImageHeight);
-    console.log("columns:", columns);
+    // console.log("rows:", rows);
+
+    // console.log("columns:", columns);
     columns = Math.round(columns);
     rows = Math.ceil(rows);
     // rows = Math.round(rows);
-    console.log("grid:", rows, columns);
+    // console.log("grid:", rows, columns);
     cell.remove(); // remove initial cell
     return { rows, columns };
   };
-  const distanceFromCenter = (i, j) => {
-    let row = Math.abs(i - centerPoint);
-    let column = Math.abs(j - centerPoint);
-    return Math.max(row, column);
-  };
+  // const distanceFromCenter = (i, j) => {
+  //   let row = Math.abs(i - centerPoint);
+  //   let column = Math.abs(j - centerPoint);
+  //   return Math.max(row, column);
+  // };
 
   const distanceFromCenterv2 = (i, j) => {
     let row1 = Math.abs(i - centerRow1);
@@ -233,9 +233,9 @@ const generate_grid = (grid, gridImage) => {
   let centerRow1 = Math.floor((rows - 1) / 2); // works with odd numbers
   let centerRow2 = Math.floor(rows / 2); // does not work with odd numbers round down?
   // console.log(centerColumn1, centerColumn2, centerRow1, centerRow2);
-  console.log(Math.floor(centerColumn1), Math.floor(centerRow1));
-  console.log(Math.floor(centerColumn2), Math.floor(centerRow2));
-  console.log("center", centerPoint);
+  // console.log(Math.floor(centerColumn1), Math.floor(centerRow1));
+  // console.log(Math.floor(centerColumn2), Math.floor(centerRow2));
+  // console.log("center", centerPoint);
   let matrix = generate_matrix();
   console.log("homepage matrix");
   console.table(matrix);
