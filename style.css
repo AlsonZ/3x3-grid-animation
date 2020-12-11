@@ -297,7 +297,7 @@ body {
 }
 
 .matrix-grid-cell {
-  animation: border-animation-v2 2s forwards;
+  animation: border-animation-v2 1.5s forwards;
   animation-delay: calc(var(--animation-order) * 0.3s);
   background-clip: content-box;
   box-shadow: inset 0 0 0 500px white;
@@ -329,6 +329,28 @@ body {
 }
 #homepage-v1 .container .title-container .title {
   color: white;
+  animation: fade-in 2s forwards;
+  animation-delay: 2s;
+  opacity: 0;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  30% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  90% {
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
 #homepage-v1 .container .image {
   width: 100%;
