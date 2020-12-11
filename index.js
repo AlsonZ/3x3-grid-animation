@@ -183,9 +183,12 @@ const generate_grid = (grid, gridImage) => {
     // get number of rows and columns
     let rows = gridImageHeight / cellHeight;
     let columns = gridImageWidth / cellWidth;
+    console.log("rows:", rows);
+    console.log(cellHeight % gridImageHeight);
+    console.log("columns:", columns);
     columns = Math.round(columns);
-    rows = Math.round(rows);
-    // rows = rows + 1;
+    rows = Math.ceil(rows);
+    // rows = Math.round(rows);
     console.log("grid:", rows, columns);
     cell.remove(); // remove initial cell
     return { rows, columns };
