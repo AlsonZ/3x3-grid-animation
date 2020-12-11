@@ -40,20 +40,20 @@ const overlay_v3 = () => {
   // let columns = gridImage.offsetWidth / cell.offsetWidth;
   let rows = gridImageHeight / cellHeight;
   let columns = gridImageWidth / cellWidth;
-  console.log("height", cellHeight, gridImageHeight, rows);
-  console.log("width", cellWidth, gridImageWidth, columns);
+  // console.log("height", cellHeight, gridImageHeight, rows);
+  // console.log("width", cellWidth, gridImageWidth, columns);
   // console.log("width", cell.offsetWidth, gridImage.offsetWidth, columns);
   // console.log("height", cell.offsetHeight, gridImage.offsetHeight, rows);
   // for (let i = 1; i < rows * columns + rows; i++) {
   //   createCell(i);
   // }
-  console.log("rows", rows, "columns", columns, rows * columns);
+  // console.log("rows", rows, "columns", columns, rows * columns);
   // rows = rows - 1;
   // columns = columns - 1;
   // console.log("rows", rows, "columns", columns, rows * columns);
   rows = Math.ceil(rows); // more rows is better as it is less precise
   columns = Math.round(columns); // round to nearest as it is more precise
-  console.log("rows", rows, "columns", columns, rows * columns);
+  // console.log("rows", rows, "columns", columns, rows * columns);
   // console.log(cell.getBoundingClientRect());
   cell.remove();
   let matrix = [];
@@ -79,7 +79,7 @@ const overlay_v3 = () => {
     }
   }
   // console.log(matrix);
-  console.table(matrix);
+  // console.table(matrix);
   // matrix.forEach((column) => {
   //   column.forEach((i) => {
   //     createCell(i);
@@ -98,14 +98,14 @@ const overlay_v3 = () => {
 overlay_v3();
 
 const overlay_v4 = () => {
-  console.log("overlay_v4");
+  // console.log("overlay_v4");
   let gridImage = document.getElementById("grid-animation-image-v4");
   // gridImage.style.height = gridImage.getBoundingClientRect().width;
   document.getElementById("grid-animation-image-v4").style.height =
     gridImage.getBoundingClientRect().width + "px";
   // ).style.height = "100px";
-  console.log(gridImage.getBoundingClientRect().width);
-  console.log(document.getElementById("grid-animation-image-v4").style.height);
+  // console.log(gridImage.getBoundingClientRect().width);
+  // console.log(document.getElementById("grid-animation-image-v4").style.height);
   // cell.setAttribute("style", "height" + i);
 };
 
@@ -132,20 +132,20 @@ const background_image_v1 = () => {
   // generate cells based on height and width.
   let rows = gridImageHeight / cellHeight;
   let columns = gridImageWidth / cellWidth;
-  console.log("height", cellHeight, gridImageHeight, rows);
-  console.log("width", cellWidth, gridImageWidth, columns);
+  // console.log("height", cellHeight, gridImageHeight, rows);
+  // console.log("width", cellWidth, gridImageWidth, columns);
   columns = Math.round(columns);
   rows = Math.round(rows);
   cell.remove();
   let centerPoint = (rows - 1) / 2;
-  console.log("centerPoint", centerPoint);
+  // console.log("centerPoint", centerPoint);
   let matrix = [];
   const distanceFromCenter = (i, j) => {
     // get absolute value of i - centerpoint;
     // if more than one centerpoint this will be different
     let row = Math.abs(i - centerPoint);
     let column = Math.abs(j - centerPoint);
-    console.log(i, row, column);
+    // console.log(i, row, column);
     return Math.max(row, column);
   };
   for (let i = 0; i < rows; i++) {
@@ -156,8 +156,8 @@ const background_image_v1 = () => {
       createCell(val);
     }
   }
-  console.log("testing new");
-  console.table(matrix);
+  // console.log("testing new");
+  // console.table(matrix);
 };
 
 background_image_v1();
@@ -185,6 +185,7 @@ const generate_grid = (grid, gridImage) => {
     let columns = gridImageWidth / cellWidth;
     columns = Math.round(columns);
     rows = Math.round(rows);
+    // rows = rows + 1;
     console.log("grid:", rows, columns);
     cell.remove(); // remove initial cell
     return { rows, columns };
