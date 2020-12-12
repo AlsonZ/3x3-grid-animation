@@ -3,7 +3,7 @@ const overlay_v2 = () => {
 
   for (let i = 0; i < 100; i++) {
     let cell = document.createElement("div");
-    cell.classList.add("grid-cell");
+    cell.classList.add("matrix-grid-cell");
     cell.setAttribute("style", "--animation-order: " + i);
     grid.appendChild(cell);
   }
@@ -206,7 +206,9 @@ const generate_grid = (grid, gridImage) => {
     let column2 = Math.abs(j - centerColumn2);
     if (
       (i == centerRow1 && j == centerColumn1) ||
-      (i == centerRow2 && j == centerColumn2)
+      (i == centerRow2 && j == centerColumn2) ||
+      (i == centerRow1 && j == centerColumn2) ||
+      (i == centerRow2 && j == centerColumn1)
     ) {
       // console.log(row1, row2, column1, column2);
       return 0;
@@ -232,7 +234,7 @@ const generate_grid = (grid, gridImage) => {
   let centerColumn2 = Math.floor(columns / 2); // round down when odd?
   let centerRow1 = Math.floor((rows - 1) / 2); // works with odd numbers
   let centerRow2 = Math.floor(rows / 2); // does not work with odd numbers round down?
-  // console.log(centerColumn1, centerColumn2, centerRow1, centerRow2);
+  console.log(centerColumn1, centerColumn2, centerRow1, centerRow2);
   // console.log(Math.floor(centerColumn1), Math.floor(centerRow1));
   // console.log(Math.floor(centerColumn2), Math.floor(centerRow2));
   // console.log("center", centerPoint);
