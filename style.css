@@ -334,11 +334,11 @@ body {
 }
 #homepage-v1 .container .title-container .title {
   color: white;
-  animation: fade-in 2s forwards;
+  animation: drop-fade-in 2s forwards;
   animation-delay: 2s;
   opacity: 0;
 }
-@keyframes fade-in {
+@keyframes drop-fade-in {
   0% {
     opacity: 0;
     transform: translateY(-100%);
@@ -369,13 +369,17 @@ body {
 
 nav {
   position: fixed;
-  background: black;
+  background: #131313;
   width: 100%;
   z-index: 1;
   height: 3rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  animation: fade-in 1s forwards;
+  animation-delay: 2s;
+  opacity: 0;
 }
 
 nav a {
@@ -384,4 +388,15 @@ nav a {
   padding: 5px;
   margin: 5px;
   border: 1px solid rgb(29, 29, 29);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
